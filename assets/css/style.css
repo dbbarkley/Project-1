@@ -1,0 +1,8 @@
+@media screen and (max-width: 768px) {
+    #logo {
+        display: none;
+    }
+
+    #logo_sm {
+        display: block;
+    }
