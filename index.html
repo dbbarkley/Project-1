@@ -1,83 +1,58 @@
 <!DOCTYPE html>
 <html lang="en" class="uk-background-secondary uk-light">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <!--UIkit-->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.3/css/uikit.min.css"
-    />
-    <!--Popper-->
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
-      integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
-      crossorigin="anonymous"
-    ></script>
-
+    <!--UIkit Stylesheet-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.3/css/uikit.min.css" />
     <!--CSS-->
-    <link
-      rel="stylesheet"
-      type="text/css"
-      media="screen"
-      href="assets/css/style.css"
-    />
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
+    <title>FoodFlix</title>
+</head>
 
-    <!-- UIkit CSS -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.3/css/uikit.min.css"
-    />
+<body>
+    
+    <!--Container-->
+    <div class="uk-container uk-align-center">
 
+        <!--foodFlix Logo Div Below-->
+        <div class="uk-align-center">
+            <img class="uk-position-center" src="assets/images/foodFlixLogo.png" alt="foodFlix" style="height:258px; width:792px" />
+        </div>
+
+        <!--Search Form Div Below-->
+        <div class="uk-position-center" style="padding-top:300px">
+            <div class="uk-margin uk-align-center">
+                <form class="uk-search uk-search-default uk-align-center" style="width:792px;">
+                    <a href="" class="uk-search-icon-flip" uk-search-icon></a>
+                    <input class="uk-search-input" type="search" placeholder="Search..." />
+                </form>
+            </div>
+        </div>
+
+        <!--Footer Below-->
+        <footer class="uk-position-bottom-center">
+            <h6 class="uk-light">Copyright 2019©</h6>
+        </footer>
+    </div>
+    <!--End Container-->
+
+
+    <!--Popper-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin="anonymous"></script>
     <!-- UIkit JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.3/js/uikit.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.3/js/uikit-icons.min.js"></script>
-    <title>Document</title>
-  </head>
-
-  <body>
     <!--JQuery and JS-->
-    <script
-      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-      crossorigin="anonymous"
-    ></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.3/js/uikit.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.3/js/uikit-icons.min.js"></script>
     <script type="text/javascript" src="assets/javascript/app.js"></script>
-    <!--Container-->
-    <div class="uk-container uk-align-center">
-      <!--foodFlix Logo Div Below-->
-      <div class="uk-align-center">
-        <img
-          class="uk-position-center"
-          src="assets/images/foodFlixLogo.png"
-          alt="foodFlix"
-          style="height:258px; width:792px"
-        />
-      </div>
-      <!--Search Form Div Below-->
-      <div class="uk-position-center" style="padding-top:300px">
-        <div class="uk-margin uk-align-center">
-          <form
-            class="uk-search uk-search-default uk-align-center"
-            style="width:792px;"
-          >
-            <a href="" class="uk-search-icon-flip" uk-search-icon></a>
-            <input
-              class="uk-search-input"
-              type="search"
-              placeholder="Search..."
-            />
-          </form>
-        </div>
-      </div>
-      <!--Footer Below-->
-      <footer class="uk-position-bottom-center">
-        <h6 class="uk-light">Copyright 2019©</h6>
-      </footer>
-    </div>
-    <!--End Container-->
-  </body>
+
+</body>
+
 </html>
