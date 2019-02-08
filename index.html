@@ -7,6 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <!--UIkit Stylesheet-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.3/css/uikit.min.css" />
+    <!--Materilize Stylesheet-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <!--CSS-->
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
     <!--Firebase-->
@@ -15,7 +17,80 @@
 </head>
 
 <body>
+
+    <!--Navbar-->
+    <nav class="z-depth-2 grey darken-3">
+        <div class="nav-wrapper container" style="width:792px">
+          <a href="#" class="brand-logo"></a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li class="logged-in" style="display: none;">
+                <a href="#" class="modal-trigger" data-target="modal-recipe">Your Recipes</a>
+            </li>
+            <li class="logged-in" style="display: none;">
+                <a href="#" class="modal-trigger" data-target="modal-logout" id="logout">Logout</a>
+            </li>
+            <li class="logged-out" style="display: none;">
+                <a href="#" class="modal-trigger" data-target="modal-login">Login</a>
+            </li>
+            <li class="logged-out" style="display: none;">
+                <a href="#" class="modal-trigger" data-target="modal-signup">Signup</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
     
+
+    <!-- Sign Up Modal-->
+    <div id="modal-signup" class="modal">
+        <div class="modal-content">
+          <h4 class="grey-text text-darken-3">Sign Up</h4><br />
+          <form id="signup-form">
+              <div class="input-field">
+                  <input type="email" id ="signup-email" required />
+                  <label for="signup-email">Email address</label>
+              </div>
+              <div class="input-field">
+                  <input type="password" id="signup-password" required />
+                  <label for="signup-password">Choose password</label>
+              </div>
+              <button class="btn grey darken-2">Sign Up</button>
+          </form>
+        </div>
+      </div>
+
+    <!-- Login Modal-->
+    <div id="modal-login" class="modal">
+        <div class="modal-content">
+            <h4 class="grey-text text-darken-3">Login</h4><br />
+            <form id="login-form">
+                <div class="input-field">
+                    <input type="email" id ="login-email" required />
+                    <label for="login-email">Email address</label>
+                </div>
+                <div class="input-field">
+                    <input type="password" id="login-password" required />
+                    <label for="login-password">Your password</label>
+                </div>
+                <button class="btn grey darken-2">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Logout Modal-->
+    <div id="modal-logout" class="modal">
+        <div class="modal-content center-align">
+            <h4 class="grey-text text-darken-3">Your Logged Out</h4>
+        </div>
+    </div>
+
+    <!-- Recipe Modal-->
+    <div id="modal-recipe" class="modal">
+        <div class="modal-content center-align">
+            <h4 class="grey-text text-darken-3">Your Recipes</h4><br />
+            <div class="recipes-details"></div>
+        </div>
+    </div>
+
     <!--Container-->
     <div class="uk-container uk-align-center">
 
@@ -100,10 +175,14 @@
     </div>
     <!--End Container-->
 
+    <!-- Firebase-->
+    <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
 
     <!--Popper-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
         crossorigin="anonymous"></script>
+    <!--Materialize JS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <!-- UIkit JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.3/js/uikit.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.3/js/uikit-icons.min.js"></script>
@@ -111,8 +190,6 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
     <script type='text/javascript' src="assets/javascript/keys.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.3/js/uikit.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.3/js/uikit-icons.min.js"></script>
     <script type="text/javascript" src="assets/javascript/app.js"></script>
 
 </body>
