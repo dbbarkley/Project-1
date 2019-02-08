@@ -1,4 +1,20 @@
 // Initialize Firebase
+$(document).ready(function() {
+  random_bg_color();
+  $("body, html").on("load", function() {
+      random_bg_color();
+  });
+});
+
+function random_bg_color() {
+var x = Math.floor(Math.random() * 256);
+var y = Math.floor(Math.random() * 256);
+var z = Math.floor(Math.random() * 256);
+var bgColor = "rgb(" + x + "," + y + "," + z + ")";
+  console.log(bgColor);
+$("body, html").css("background-color", bgColor);
+}
+
 var config = {
   apiKey: firebaseKey,
   authDomain: "foodflix-9170b.firebaseapp.com",
