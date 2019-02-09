@@ -133,8 +133,8 @@ function searchRecipes() {
       var newRecipe =
       "<ul class='collapsible'>" +
       "<li>" +
-      "<div class='collapsible-header'>" + label + "</div>" +
-      `<div class='collapsible-body'><span class='span span${i}'></span></div>` +
+      "<div class='collapsible-header' style='background:transparent; font-family: Rajdhani, sans-serif'>" + label + "</div>" +
+      `<div class='collapsible-body' style='font-family: Rajdhani, sans-serif;'><span class='span span${i}'></span></div>` +
       "</li>" +
       "</ul>"
 
