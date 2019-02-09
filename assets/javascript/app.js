@@ -5,13 +5,17 @@ $(document).ready(function() {
   });
 });
 
+var bgColors = ["46,139,87", "30,144,255", "60,179,113" , "255,0,255", "245,176,203", "220,106,207", 
+                "212,77,92", "148, 197, 204", "180, 210, 231", "169, 206, 244", "34, 174, 209", 
+                "175, 169, 141", "105, 153, 93", "132, 192, 198", "70, 177, 201", "207, 142, 128", 
+                "60, 136, 110", "239, 136, 227", "103, 142, 54", "221, 162, 79", "193, 77, 148",
+                "160, 157, 165", "87, 222, 193", "27, 173, 196", "240, 153, 81", "48, 197, 136", 
+                "3, 198, 214"];
+
 function random_bg_color() {
-var x = Math.floor(Math.random() * 256);
-var y = Math.floor(Math.random() * 256);
-var z = Math.floor(Math.random() * 256);
-var bgColor = "rgb(" + x + "," + y + "," + z + ")";
-$("body, html").css("background-color", bgColor);
-}
+  var randomColor = bgColors[Math.floor(Math.random()*bgColors.length)];
+  $("body, html").css("background-color", "rgb(" + randomColor + ")");
+};
 
 // Initialize Firebase
 var config = {
@@ -29,7 +33,7 @@ var database = firebase.database();
 var auth = firebase.auth();
 
 // Setup materialize Components. This will call the modals when the buttons are clicked
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
   var modals = document.querySelectorAll(".modal");
   M.Modal.init(modals);
 });
@@ -121,17 +125,65 @@ function searchRecipes() {
   $.ajax({
     url: queryURL,
     method: "GET"
-  }).then(function(response) {
+  }).then(function (response) {
     console.log(response);
+    for (var i = 0; i < 5; i++) {
+      var label = response.hits[i].recipe.label;
+      var recipe = $(".recipes");
+      var newRecipe =
+      "<ul class='collapsible'>" +
+      "<li>" +
+      "<div class='collapsible-header'>" + label + "</div>" +
+      `<div class='collapsible-body'><span class='span span${i}'></span></div>` +
+      "</li>" +
+      "</ul>"
+
+      recipe.append(newRecipe);
+      M.AutoInit();
+    
+    
+      for (var j = 0; j <= response.hits[i].recipe.ingredientLines.length - 1; j++) {
+        var ingredients = response.hits[i].recipe.ingredientLines[j];
+        if (i == 0) console.log(ingredients);
+
+        var span = $(`.span${i}`);
+        console.log(span);
+        span.append(ingredients);
+      }
+    };
   });
 }
 
+document.addEventListener('DOMContentLoaded', function () {
+  var elems = document.querySelectorAll('.collapsible');
+  M.Collapsible.init(elems);
+});
+
 //Click listener to search API
-$(".uk-search-icon-flip").on("click", function(event) {
+$(".uk-search-icon-flip").on("click", function (event) {
   event.preventDefault();
   searchRecipes();
+
   //Clears the search field on enter/click
   $(".uk-search-input").val("");
 });
 
+function searchMovie() {
 
+  var genreSearch = $("input[]:checked").val();
+
+  var queryURL =
+    "https://api.themoviedb.org/3/discover/movie?api_key=" +
+    tmdbKey.danielKey +
+    "&language=en-US&with_genres=" +
+    +
+    "&include_adult=false&sort_by=vote_count.desc"
+
+
+  $.ajax({
+    url: queryURL,
+    method: "GET"
+  }).then(function (response) {
+    console.log(response);
+  });
+}

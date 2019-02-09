@@ -14,50 +14,51 @@
     <!--Firebase-->
     <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
     <title>FoodFlix</title>
+    <!--Google Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Rajdhani" rel="stylesheet">
 </head>
 
 <body>
 
     <!--Navbar-->
-    <nav class="z-depth-0 grey darken-3">
-        <div class="nav-wrapper container">
-          <a href="#" class="brand-logo">Logo
-
-          </a>
-          <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li class="logged-in" style="display: none;">
-                <a href="#" class="modal-trigger" data-target="modal-recipe">Your Recipes</a>
-            </li>
-            <li class="logged-in" style="display: none;">
-                <a href="#" class="modal-trigger" data-target="modal-logout" id="logout">Logout</a>
-            </li>
-            <li class="logged-out" style="display: none;">
-                <a href="#" class="modal-trigger" data-target="modal-login">Login</a>
-            </li>
-            <li class="logged-out" style="display: none;">
-                <a href="#" class="modal-trigger" data-target="modal-signup">Signup</a>
-            </li>
-          </ul>
+    <nav class="z-depth-2 grey darken-3">
+        <div class="nav-wrapper container" style="width:792px">
+            <a href="#" class="brand-logo"></a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li class="logged-in" style="display: none;">
+                    <a href="#" class="modal-trigger" data-target="modal-recipe">Your Recipes</a>
+                </li>
+                <li class="logged-in" style="display: none;">
+                    <a href="#" class="modal-trigger" data-target="modal-logout" id="logout">Logout</a>
+                </li>
+                <li class="logged-out" style="display: none;">
+                    <a href="#" class="modal-trigger" data-target="modal-login">Login</a>
+                </li>
+                <li class="logged-out" style="display: none;">
+                    <a href="#" class="modal-trigger" data-target="modal-signup">Signup</a>
+                </li>
+            </ul>
         </div>
-      </nav>
+    </nav>
+
 
     <!-- Sign Up Modal-->
     <div id="modal-signup" class="modal">
         <div class="modal-content">
-          <h4 class="grey-text text-darken-3">Sign Up</h4><br />
-          <form id="signup-form">
-              <div class="input-field">
-                  <input type="email" id ="signup-email" required />
-                  <label for="signup-email">Email address</label>
-              </div>
-              <div class="input-field">
-                  <input type="password" id="signup-password" required />
-                  <label for="signup-password">Choose password</label>
-              </div>
-              <button class="btn grey darken-2">Sign Up</button>
-          </form>
+            <h4 class="grey-text text-darken-3">Sign Up</h4><br />
+            <form id="signup-form">
+                <div class="input-field">
+                    <input type="email" id="signup-email" required />
+                    <label for="signup-email">Email address</label>
+                </div>
+                <div class="input-field">
+                    <input type="password" id="signup-password" required />
+                    <label for="signup-password">Choose password</label>
+                </div>
+                <button class="btn grey darken-2">Sign Up</button>
+            </form>
         </div>
-      </div>
+    </div>
 
     <!-- Login Modal-->
     <div id="modal-login" class="modal">
@@ -65,7 +66,7 @@
             <h4 class="grey-text text-darken-3">Login</h4><br />
             <form id="login-form">
                 <div class="input-field">
-                    <input type="email" id ="login-email" required />
+                    <input type="email" id="login-email" required />
                     <label for="login-email">Email address</label>
                 </div>
                 <div class="input-field">
@@ -80,7 +81,7 @@
     <!-- Logout Modal-->
     <div id="modal-logout" class="modal">
         <div class="modal-content center-align">
-            <h4 class="grey-text text-darken-3">Your Logged Out</h4>
+            <h4 class="grey-text text-darken-3">You're Logged Out</h4>
         </div>
     </div>
 
@@ -97,31 +98,74 @@
 
         <!--foodFlix Logo Div Below-->
         <div class="uk-align-center">
-            <img class="uk-position-center" src="assets/images/foodFlixLogo.png" alt="foodFlix" style="height:258px; width:792px" />
+            <img class="uk-align-center" src="assets/images/foodFlixLogo.png" alt="foodFlix"
+                style="height:258px; width:792px" />
         </div>
 
         <!--Search Form Div Below-->
-        <div class="uk-position-center" style="padding-top:300px">
+        <div class="uk-align-center">
             <div class="uk-margin uk-align-center">
                 <form class="uk-search uk-search-default uk-align-center" style="width:792px;">
                     <button class="uk-search-icon-flip" uk-search-icon></button>
-                    <input class="uk-search-input" type="search" placeholder="Search by reciepe, by ingredient or by multiple ingredients!" />
+                    <input class="uk-search-input" style="font-family: 'Rajdhani', sans-serif;" type="search"
+                        placeholder="Search by reciepe, by ingredient or by multiple ingredients!" />
                 </form>
             </div>
         </div>
 
-        <!--Footer Below-->
-        <footer class="uk-position-bottom-center">
-            <h6 class="uk-light">Copyright 2019©</h6>
-        </footer>
+        <!--Radio buttons-->
+        <div>
+            <p class="uk-align-center"
+                style="font-size: 25px; margin-top: 0px; font-family: 'Rajdhani', sans-serif; width: 792px">Now pick a
+                movie genre!</p>
+
+            <form action="#" class="uk-align-center" style="margin-top: 0px; width: 792px">
+
+                <p style="display:inline-block; font-size: 20px; font-family: 'Rajdhani', sans-serif;">
+                    <label>
+                        <input class="with-gap" name="action" type="radio" />
+                        <span style="font-size: 20px; color: whitesmoke">Action</span>
+                    </label>
+                    <label>
+                        <input class="with-gap" name="action" type="radio" />
+                        <span style="font-size: 20px; color: whitesmoke">Romance</span>
+                    </label>
+                    <label>
+                        <input class="with-gap" name="action" type="radio" />
+                        <span style="font-size: 20px; color: whitesmoke">Comedy</span>
+                    </label>
+                    <label>
+                        <input class="with-gap" name="action" type="radio" />
+                        <span style="font-size: 20px; color: whitesmoke">Adventure</span>
+                    </label>
+                    <label>
+                        <input class="with-gap" name="action" type="radio" />
+                        <span style="font-size: 20px; color: whitesmoke">Horror</span>
+                    </label>
+                </p>
+            </form>
+        </div>
     </div>
+    <div class="recipes"></div>
+
+
+
+
+
+
+    <!-- Footer Below
+    <footer class="uk-position-bottom-center">
+        <h6 class="uk-light" style="font-family: 'Rajdhani', sans-serif;">Copyright 2019©</h6>
+    </footer> -->
+
     <!--End Container-->
 
     <!-- Firebase-->
     <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
 
     <!--Popper-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
         crossorigin="anonymous"></script>
     <!--Materialize JS-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
@@ -129,8 +173,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.3/js/uikit.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.3/js/uikit-icons.min.js"></script>
     <!--JQuery and JS-->
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-    crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script type='text/javascript' src="assets/javascript/keys.js"></script>
     <script type="text/javascript" src="assets/javascript/app.js"></script>
 
