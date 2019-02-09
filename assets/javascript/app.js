@@ -147,7 +147,6 @@ function searchRecipes() {
         if (i == 0) console.log(ingredients);
 
         var span = $(`.span${i}`);
-        console.log(span);
         span.append(ingredients);
       }
     };
@@ -159,31 +158,34 @@ document.addEventListener('DOMContentLoaded', function () {
   M.Collapsible.init(elems);
 });
 
-//Click listener to search API
+//Click listener to search both APIs at the same time
 $(".uk-search-icon-flip").on("click", function (event) {
   event.preventDefault();
   searchRecipes();
+  searchMovie();
 
   //Clears the search field on enter/click
   $(".uk-search-input").val("");
 });
 
 function searchMovie() {
-
-  var genreSearch = $("input[]:checked").val();
+  
+  if($("input[type='radio'].with-gap").is(':checked')) {
+    var genreSearch = $("input[type='radio'].with-gap:checked").val();
+  }
 
   var queryURL =
     "https://api.themoviedb.org/3/discover/movie?api_key=" +
-    tmdbKey.danielKey +
+    tmdbKey.danielkey +
     "&language=en-US&with_genres=" +
-    +
+    genreSearch +
     "&include_adult=false&sort_by=vote_count.desc"
-
 
   $.ajax({
     url: queryURL,
     method: "GET"
   }).then(function (response) {
     console.log(response);
+
   });
 }
