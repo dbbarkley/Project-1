@@ -19,11 +19,9 @@
 <body>
 
     <!--Navbar-->
-    <nav class="z-depth-0 grey darken-3">
-        <div class="nav-wrapper container">
-          <a href="#" class="brand-logo">Logo
-
-          </a>
+    <nav class="z-depth-2 grey darken-3">
+        <div class="nav-wrapper container" style="width:792px">
+          <a href="#" class="brand-logo"></a>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li class="logged-in" style="display: none;">
                 <a href="#" class="modal-trigger" data-target="modal-recipe">Your Recipes</a>
@@ -40,6 +38,7 @@
           </ul>
         </div>
       </nav>
+    
 
     <!-- Sign Up Modal-->
     <div id="modal-signup" class="modal">
@@ -110,6 +109,26 @@
             </div>
         </div>
 
+        <!--Results Table Below-->
+        <div>
+          <table class="uk-table uk-table-striped uk-position-center" style="margin-top: 225px; width: 792px">
+                
+            <thead>
+                <tr>
+                    <th>FOOD</th>
+                    <th>MOVIE</th>
+                </tr>
+            </thead>
+            <tbody>
+            <!--Dynamyicly created search results will be inserted below, example row shown below-->
+                <tr>
+                    <td>Fried Chicken</td>
+                    <td>Bird Box</td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+
         <!--Footer Below-->
         <footer class="uk-position-bottom-center">
             <h6 class="uk-light">Copyright 2019©</h6>
@@ -130,7 +149,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.3/js/uikit-icons.min.js"></script>
     <!--JQuery and JS-->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-    crossorigin="anonymous"></script>
+        crossorigin="anonymous"></script>
     <script type='text/javascript' src="assets/javascript/keys.js"></script>
     <script type="text/javascript" src="assets/javascript/app.js"></script>
 
