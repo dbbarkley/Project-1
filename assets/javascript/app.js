@@ -1,16 +1,16 @@
-$(document).ready(function() {
+$(document).ready(function () {
   random_bg_color();
-  $("body, html").on("load", function() {
-      random_bg_color();
+  $("body, html").on("load", function () {
+    random_bg_color();
   });
 });
 
 function random_bg_color() {
-var x = Math.floor(Math.random() * 256);
-var y = Math.floor(Math.random() * 256);
-var z = Math.floor(Math.random() * 256);
-var bgColor = "rgb(" + x + "," + y + "," + z + ")";
-$("body, html").css("background-color", bgColor);
+  var x = Math.floor(Math.random() * 256);
+  var y = Math.floor(Math.random() * 256);
+  var z = Math.floor(Math.random() * 256);
+  var bgColor = "rgb(" + x + "," + y + "," + z + ")";
+  $("body, html").css("background-color", bgColor);
 }
 
 // Initialize Firebase
@@ -29,7 +29,7 @@ var database = firebase.database();
 var auth = firebase.auth();
 
 // Setup materialize Components. This will call the modals when the buttons are clicked
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
   var modals = document.querySelectorAll(".modal");
   M.Modal.init(modals);
 });
@@ -121,54 +121,65 @@ function searchRecipes() {
   $.ajax({
     url: queryURL,
     method: "GET"
-  }).then(function(response) {
+  }).then(function (response) {
     console.log(response);
-    for(var i = 0; i <= 4; i++) {
-        var label = response.hits[i].recipe.label;
-        
+    for (var i = 0; i < 5; i++) {
+      var label = response.hits[i].recipe.label;
+      var recipe = $(".recipes");
+      var newRecipe =
+      "<ul class='collapsible'>" +
+      "<li>" +
+      "<div class='collapsible-header'>" + label + "</div>" +
+      `<div class='collapsible-body'><span class='span span${i}'></span></div>` +
+      "</li>" +
+      "</ul>"
 
-        var recipe = $(".recipes");
-        var newRecipe = 
-            "<ul class='collapsible' style='width: 700px, margin: auto'>" +
-              "<li>" +
-                "<div class='collapsible-header'>" + label + "</div>" +
-                "<div class='collapsible-body'><span>" + "</span></div>" +
-              "</li>" +
-            "</ul>"  
+      recipe.append(newRecipe);
+      M.AutoInit();
+    
+    
+      for (var j = 0; j <= response.hits[i].recipe.ingredientLines.length - 1; j++) {
+        var ingredients = response.hits[i].recipe.ingredientLines[j];
+        if (i == 0) console.log(ingredients);
 
-        recipe.append(newRecipe);
+        var span = $(`.span${i}`);
+        console.log(span);
+        span.append(ingredients);
+      }
     };
   });
 }
-document.addEventListener('DOMContentLoaded', function() {
+
+document.addEventListener('DOMContentLoaded', function () {
   var elems = document.querySelectorAll('.collapsible');
-  var instances = M.Collapsible.init(elems);
+  M.Collapsible.init(elems);
 });
 
 //Click listener to search API
-$(".uk-search-icon-flip").on("click", function(event) {
+$(".uk-search-icon-flip").on("click", function (event) {
   event.preventDefault();
   searchRecipes();
+
   //Clears the search field on enter/click
   $(".uk-search-input").val("");
 });
 
 function searchMovie() {
 
-  var genreSearch = $("input[]:checked").val();   
+  var genreSearch = $("input[]:checked").val();
 
   var queryURL =
     "https://api.themoviedb.org/3/discover/movie?api_key=" +
-    tmdbKey.danielKey + 
+    tmdbKey.danielKey +
     "&language=en-US&with_genres=" +
-     +
+    +
     "&include_adult=false&sort_by=vote_count.desc"
 
 
   $.ajax({
     url: queryURL,
     method: "GET"
-  }).then(function(response) {
+  }).then(function (response) {
     console.log(response);
   });
 }
