@@ -148,6 +148,7 @@ function searchRecipes() {
 
         var span = $(`.span${i}`);
         console.log(span);
+        // added line break for each ingredient
         span.append(ingredients + "<br>");
       }
     };
