@@ -27,7 +27,6 @@ function random_bg_color() {
   // $("body, html").css("background-color", bgColor);
   // }
 
-
 // Initialize Firebase
 var config = {
   apiKey: firebaseKey,
