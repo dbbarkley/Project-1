@@ -148,7 +148,7 @@ function searchRecipes() {
 
         var span = $(`.span${i}`);
         console.log(span);
-        span.append(ingredients);
+        span.append(ingredients + "<br>");
       }
     };
   });
