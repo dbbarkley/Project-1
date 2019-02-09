@@ -123,8 +123,27 @@ function searchRecipes() {
     method: "GET"
   }).then(function(response) {
     console.log(response);
+    for(var i = 0; i <= 4; i++) {
+        var label = response.hits[i].recipe.label;
+        
+
+        var recipe = $(".recipes");
+        var newRecipe = 
+            "<ul class='collapsible' style='width: 700px, margin: auto'>" +
+              "<li>" +
+                "<div class='collapsible-header'>" + label + "</div>" +
+                "<div class='collapsible-body'><span>" + "</span></div>" +
+              "</li>" +
+            "</ul>"  
+
+        recipe.append(newRecipe);
+    };
   });
 }
+document.addEventListener('DOMContentLoaded', function() {
+  var elems = document.querySelectorAll('.collapsible');
+  var instances = M.Collapsible.init(elems);
+});
 
 //Click listener to search API
 $(".uk-search-icon-flip").on("click", function(event) {
@@ -134,4 +153,22 @@ $(".uk-search-icon-flip").on("click", function(event) {
   $(".uk-search-input").val("");
 });
 
+function searchMovie() {
 
+  var genreSearch = $("input[]:checked").val();   
+
+  var queryURL =
+    "https://api.themoviedb.org/3/discover/movie?api_key=" +
+    tmdbKey.danielKey + 
+    "&language=en-US&with_genres=" +
+     +
+    "&include_adult=false&sort_by=vote_count.desc"
+
+
+  $.ajax({
+    url: queryURL,
+    method: "GET"
+  }).then(function(response) {
+    console.log(response);
+  });
+}
