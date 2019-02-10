@@ -129,12 +129,15 @@ function searchRecipes() {
     console.log(response);
     for (var i = 0; i < 5; i++) {
       var label = response.hits[i].recipe.label;
+      var image = response.hits[i].recipe.image;
+      var URL = response.hits[i].recipe.url;
       var recipe = $(".recipes");
       var newRecipe =
-      "<ul class='collapsible'>" +
+      "<ul class='collapsible popout'>" +
       "<li>" +
       "<div class='collapsible-header' style='background:transparent; font-family: Rajdhani, sans-serif'>" + label + "</div>" +
-      `<div class='collapsible-body' style='font-family: Rajdhani, sans-serif;'><span class='span span${i}'></span></div>` +
+      `<div class='collapsible-body' style='font-family: Rajdhani, sans-serif;'><img src=` + image + `><h4 class='text'>Ingredients:</h4><span class='span span${i}'></span>` + 
+      `<a class="waves-effect waves-light btn grey darken-2 see-recipe" href="` + URL + `"target="_blank">See Recipe</a></div>` +
       "</li>" +
       "</ul>"
 
@@ -144,13 +147,11 @@ function searchRecipes() {
     
       for (var j = 0; j <= response.hits[i].recipe.ingredientLines.length - 1; j++) {
         var ingredients = response.hits[i].recipe.ingredientLines[j];
-        if (i == 0) console.log(ingredients);
 
-        var span = $(`.span${i}`);
+        var spanIngredients = $(`.span${i}`);
 
-        span.append(ingredients);
         // added line break for each ingredient
-        span.append(ingredients + "<br>");
+        spanIngredients.append(ingredients + "<br>");
 
       }
     };
