@@ -191,5 +191,14 @@ function searchMovie() {
   }).then(function (response) {
     console.log(response);
 
+    var randomIndex = [Math.floor(Math.random() * response.results.length)];
+    var randomMovie = response.results[randomIndex].title;
+    var moviePoster = "<img src='https://image.tmdb.org/t/p/w500" + response.results[randomIndex].poster_path + "'/>"
+    console.log(randomMovie);
+    console.log(moviePoster);
+
+    $(".movie").append(randomMovie + "<br>");
+    $(".movie").append(moviePoster + "<br> <br>");
+
   });
 }
