@@ -1,0 +1,19 @@
+.collapsible-body {
+    background-color: white;
+    color: black;
+}
+.text {
+    color: black!important;
+    margin-top: -1px;
+}
+.collapsible {
+    margin: -2px;
+    color: black;
+    font-size: 20px;
+}
+.collapsible-header {
+    background-color: white!important;
+}
+.see-recipe {
+    margin-top: 5px!important;
+}
