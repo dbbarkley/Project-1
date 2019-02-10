@@ -136,7 +136,7 @@ function searchRecipes() {
       "<ul class='collapsible popout'>" +
       "<li>" +
       "<div class='collapsible-header' style='background:transparent; font-family: Rajdhani, sans-serif'>" + label + "</div>" +
-      `<div class='collapsible-body' style='font-family: Rajdhani, sans-serif;'><img src=` + image + `><h4 class='text'>Ingredients:</h4><span class='span span${i}'></span>` + 
+      `<div class='collapsible-body' style='font-family: Rajdhani, sans-serif;'><img src=` + image + `><p class='text'>Ingredients:</p><span class='span span${i} text'></span>` + 
       `<a class="waves-effect waves-light btn grey darken-2 see-recipe" href="` + URL + `"target="_blank">See Recipe</a></div>` +
       "</li>" +
       "</ul>"
