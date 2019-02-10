@@ -1,19 +1,51 @@
 .collapsible-body {
-    background-color: white;
-    color: black;
+    background-color: rgb(245,245,245,0.4);
+    color: rgb(66,66,66);
 }
 .text {
-    color: black!important;
+    color: rgb(66,66,66)!important;
     margin-top: -1px;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 17px;
+    font-weight: bolder;
 }
 .collapsible {
     margin: -2px;
-    color: black;
+    color: rgb(66,66,66);
     font-size: 20px;
+    font-weight: bolder;
 }
 .collapsible-header {
-    background-color: white!important;
+    background-color: rgb(245,245,245,0.4)!important;
+    
 }
 .see-recipe {
     margin-top: 5px!important;
+}
+
+.searchBar {
+    font-family: 'Rajdhani', sans-serif; 
+    font-weight: bolder;
+    color:rgb(66,66,66); 
+}
+
+.genreOptions {
+    font-size: 20px; 
+    font-weight: bolder;
+    color:rgb(66,66,66);
+    font-family: 'Rajdhani', sans-serif;
+}
+
+.optionBox {
+        float: left;
+        padding-right: 9%;
+}
+
+.radioButtonHeader {
+    font-size: 22px;
+    font-weight: bolder;
+    color:rgb(66,66,66);
+    font-family: 'Rajdhani', sans-serif;  
+    margin-top: 0px;
+    width: 792px; 
 }
