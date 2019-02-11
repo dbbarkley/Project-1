@@ -19,12 +19,12 @@ function random_bg_color() {
 
 // Initialize Firebase
 var config = {
-  apiKey: firebaseKey,
-  authDomain: "foodflix-9170b.firebaseapp.com",
-  databaseURL: "https://foodflix-9170b.firebaseio.com",
-  projectId: "foodflix-9170b",
-  storageBucket: "foodflix-9170b.appspot.com",
-  messagingSenderId: "471943646046"
+  apiKey: "AIzaSyCcGR40ODqsfy5HIkZhYBokh4DYHFOQVzk",
+  authDomain: "project-1-903bf.firebaseapp.com",
+  databaseURL: "https://project-1-903bf.firebaseio.com",
+  projectId: "project-1-903bf",
+  storageBucket: "project-1-903bf.appspot.com",
+  messagingSenderId: "818612370731"
 };
 
 firebase.initializeApp(config);
@@ -129,21 +129,21 @@ function searchRecipes() {
     console.log(response);
     for (var i = 0; i < 5; i++) {
       var label = response.hits[i].recipe.label;
-      var image = response.hits[i].recipe.image;
+      var  image = response.hits[i].recipe.image;
       var URL = response.hits[i].recipe.url;
       var recipe = $(".recipes");
       var newRecipe =
       "<ul class='collapsible popout'>" +
       "<li>" +
       "<div class='collapsible-header' style='background:transparent; font-family: Rajdhani, sans-serif'>" + label + "</div>" +
-      `<div class='collapsible-body' style='font-family: Rajdhani, sans-serif;'><img src=` + image + `><h4 class='text'>Ingredients:</h4><span class='span span${i}'></span>` + 
-      `<a class="waves-effect waves-light btn grey darken-2 see-recipe" href="` + URL + `"target="_blank">See Recipe</a></div>` +
+      `<div class='collapsible-body test' style='font-family: Rajdhani, sans-serif;'><img src=` + image + `><h4 class='text'>Ingredients:</h4><span class='span span${i}'></span>` + 
+      `<a class="waves-effect waves-light btn grey darken-2 see-recipe" href="` + URL + `"target="_blank">See Recipe</a>` +
+      "<a class='waves-effect waves-light btn grey darken-2 save' id='save-recipe"+i+"'>Save Recipe</div>" +
       "</li>" +
       "</ul>"
 
       recipe.append(newRecipe);
       M.AutoInit();
-    
     
       for (var j = 0; j <= response.hits[i].recipe.ingredientLines.length - 1; j++) {
         var ingredients = response.hits[i].recipe.ingredientLines[j];
@@ -153,11 +153,25 @@ function searchRecipes() {
         // added line break for each ingredient
         spanIngredients.append(ingredients + "<br>");
 
-      }
+      };
+        $(document.body).on("click", "#save-recipe"+i+"", (e) => {
+        e.preventDefault();
+        var test = 
+        "<ul class='collapsible popout'>" +
+        "<li>" +
+        "<div class='collapsible-header' style='background:transparent; font-family: Rajdhani, sans-serif'>" + label + "</div>" +
+        `<div class='collapsible-body test' style='font-family: Rajdhani, sans-serif;'><img src=` + image + `><h4 class='text'></h4><span class='span span${i}'></span>` + 
+        `<a class="waves-effect waves-light btn grey darken-2 see-recipe" href="` + URL + `"target="_blank">See Recipe</a>` +
+        "</li>" +
+        "</ul>"
+  
+        $(".recipes-details").append(test);
+        M.AutoInit();
+        
+      });
     };
   });
 }
-
 document.addEventListener('DOMContentLoaded', function () {
   var elems = document.querySelectorAll('.collapsible');
   M.Collapsible.init(elems);
