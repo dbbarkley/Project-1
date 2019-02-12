@@ -29,9 +29,7 @@ var config = {
 
 firebase.initializeApp(config);
 
-var fireStore = firebase.fireStore();
-
-var database = firebase.database();
+var database = firebase.firestore();
 var auth = firebase.auth();
 
 // Setup materialize Components. This will call the modals when the buttons are clicked
@@ -188,14 +186,14 @@ function searchRecipes() {
         "</li>" +
         "</ul>"
 
-        fireStore.collection("recipes").add({
+        database.collection("recipes").add({
           label: label0,
           image: image0,
           URL: URL0
         }).then(() => {
           var favReciep = document.querySelector("#modal-recipe");
           M.Modal.getInstance(favReciep).open();
-        })
+        });
   
         $(".recipes-details").append(clickOne);
         M.AutoInit();
@@ -212,6 +210,15 @@ function searchRecipes() {
         "</li>" +
         "</ul>"
   
+        database.collection("recipes").add({
+          label: label1,
+          image: image1,
+          URL: URL1
+        }).then(() => {
+          var favReciep = document.querySelector("#modal-recipe");
+          M.Modal.getInstance(favReciep).open();
+        });
+
         $(".recipes-details").append(clickTwo);
         M.AutoInit(); 
       });
@@ -227,6 +234,15 @@ function searchRecipes() {
         "</li>" +
         "</ul>"
   
+        database.collection("recipes").add({
+          label: label2,
+          image: image2,
+          URL: URL2
+        }).then(() => {
+          var favReciep = document.querySelector("#modal-recipe");
+          M.Modal.getInstance(favReciep).open();
+        });
+
         $(".recipes-details").append(clickThree);
         M.AutoInit();
       });
@@ -241,7 +257,16 @@ function searchRecipes() {
         `<a class="waves-effect waves-light btn grey darken-2 see-recipe" href="` + URL3 + `"target="_blank">See Recipe</a>` +
         "</li>" +
         "</ul>"
-  
+
+        database.collection("recipes").add({
+          label: label3,
+          image: image3,
+          URL: URL3
+        }).then(() => {
+          var favReciep = document.querySelector("#modal-recipe");
+          M.Modal.getInstance(favReciep).open();
+        });
+
         $(".recipes-details").append(clickFour);
         M.AutoInit();
       });
@@ -257,6 +282,15 @@ function searchRecipes() {
         "</li>" +
         "</ul>"
   
+        database.collection("recipes").add({
+          label: label4,
+          image: image4,
+          URL: URL4
+        }).then(() => {
+          var favReciep = document.querySelector("#modal-recipe");
+          M.Modal.getInstance(favReciep).open();
+        });
+
         $(".recipes-details").append(clickFive);
         M.AutoInit();
       });
