@@ -19,15 +19,17 @@ function random_bg_color() {
 
 // Initialize Firebase
 var config = {
-  apiKey: firebaseKey,
-  authDomain: "foodflix-9170b.firebaseapp.com",
-  databaseURL: "https://foodflix-9170b.firebaseio.com",
-  projectId: "foodflix-9170b",
-  storageBucket: "foodflix-9170b.appspot.com",
-  messagingSenderId: "471943646046"
+  apiKey: "AIzaSyCcGR40ODqsfy5HIkZhYBokh4DYHFOQVzk",
+  authDomain: "project-1-903bf.firebaseapp.com",
+  databaseURL: "https://project-1-903bf.firebaseio.com",
+  projectId: "project-1-903bf",
+  storageBucket: "project-1-903bf.appspot.com",
+  messagingSenderId: "818612370731"
 };
 
 firebase.initializeApp(config);
+
+var fireStore = firebase.fireStore();
 
 var database = firebase.database();
 var auth = firebase.auth();
@@ -118,9 +120,9 @@ function searchRecipes() {
     "https://api.edamam.com/search?q=" +
     itemSearch +
     "&app_id=" +
-    edamamKey.danielID +
+    edamamKey.ashleyID +
     "&app_key=" +
-    edamamKey.danielKey;
+    edamamKey.ashleyKey;
 
   $.ajax({
     url: queryURL,
@@ -185,6 +187,15 @@ function searchRecipes() {
         `<a class="waves-effect waves-light btn grey darken-2 see-recipe" href="` + URL0 + `"target="_blank">See Recipe</a>` +
         "</li>" +
         "</ul>"
+
+        fireStore.collection("recipes").add({
+          label: label0,
+          image: image0,
+          URL: URL0
+        }).then(() => {
+          var favReciep = document.querySelector("#modal-recipe");
+          M.Modal.getInstance(favReciep).open();
+        })
   
         $(".recipes-details").append(clickOne);
         M.AutoInit();
