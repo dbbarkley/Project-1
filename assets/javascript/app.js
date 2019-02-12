@@ -164,7 +164,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 //Click listener to search both APIs at the same time
-$(".uk-search-icon-flip").on("click", function (event) {
+$(".search-button").on("click", function (event) {
   event.preventDefault();
   searchRecipes();
   searchMovie();
