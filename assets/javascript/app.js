@@ -19,12 +19,12 @@ function random_bg_color() {
 
 // Initialize Firebase
 var config = {
-  apiKey: "AIzaSyCcGR40ODqsfy5HIkZhYBokh4DYHFOQVzk",
-  authDomain: "project-1-903bf.firebaseapp.com",
-  databaseURL: "https://project-1-903bf.firebaseio.com",
-  projectId: "project-1-903bf",
-  storageBucket: "project-1-903bf.appspot.com",
-  messagingSenderId: "818612370731"
+  apiKey: firebaseKey,
+  authDomain: "foodflix-9170b.firebaseapp.com",
+  databaseURL: "https://foodflix-9170b.firebaseio.com",
+  projectId: "foodflix-9170b",
+  storageBucket: "foodflix-9170b.appspot.com",
+  messagingSenderId: "471943646046"
 };
 
 firebase.initializeApp(config);
