@@ -33,6 +33,14 @@
     color:rgb(66,66,66);
 }
 
+.carousel {
+    margin-top: 0px;
+}
+
+.carousel-item {
+    padding-bottom: 200px;
+}
+
 
 .genreOptions {
     font-size: 20px; 
