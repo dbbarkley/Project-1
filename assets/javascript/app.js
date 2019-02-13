@@ -310,7 +310,11 @@ document.addEventListener('DOMContentLoaded', function () {
 $(".search-button").on("click", function (event) {
   event.preventDefault();
   searchRecipes();
-  searchMovie();
+  //SetTimeout because the movie API send data back faster than the recipes
+  setTimeout(function(){ 
+    searchMovie()
+  }, 1000);
+  ;
 
   //Clears the search field on enter/click
   $(".uk-search-input").val("");
