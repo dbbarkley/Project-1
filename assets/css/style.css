@@ -22,6 +22,10 @@
 .see-recipe {
     margin-top: 5px!important;
 }
+.save {
+    margin-top: 5px!important;
+    margin-left: 10px!important;
+}
 
 .searchBarDiv, .searchBarForm{
     color:rgb(66,66,66); 
