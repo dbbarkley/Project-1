@@ -111,6 +111,9 @@ loginForm.addEventListener("submit", e => {
 
 //Function to search receipe API
 function searchRecipes() {
+  //Clears the div
+  $(".recipes").empty();
+
   var itemSearch = $(".uk-search-input")
     .val()
     .trim();
@@ -118,9 +121,9 @@ function searchRecipes() {
     "https://api.edamam.com/search?q=" +
     itemSearch +
     "&app_id=" +
-    edamamKey.ashleyID +
+    edamamKey.mausufID +
     "&app_key=" +
-    edamamKey.ashleyKey;
+    edamamKey.mausufKey;
 
   $.ajax({
     url: queryURL,
@@ -314,6 +317,8 @@ $(".search-button").on("click", function (event) {
 });
 
 function searchMovie() {
+  //Clears the div
+  $(".movie").empty();
   
   if($("input[type='radio'].with-gap").is(':checked')) {
     var genreSearch = $("input[type='radio'].with-gap:checked").val();
