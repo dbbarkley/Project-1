@@ -1,3 +1,4 @@
+// Loads a random background color on page load
 $(document).ready(function() {
   random_bg_color();
   $("body, html").on("load", function() {
@@ -42,7 +43,7 @@ function random_bg_color() {
 
 // Initialize Firebase
 var config = {
-  apiKey: "AIzaSyCvgmtREtDbLoWfqqa6-v5VrykBXjzy9FI",
+  apiKey: firebaseKey,
   authDomain: "foodflix-9170b.firebaseapp.com",
   databaseURL: "https://foodflix-9170b.firebaseio.com",
   projectId: "foodflix-9170b",
@@ -51,18 +52,16 @@ var config = {
 };
 firebase.initializeApp(config);
 
-firebase.initializeApp(config);
-
 var database = firebase.firestore();
 var auth = firebase.auth();
 
-// Setup materialize Components. This will call the modals when the buttons are clicked
+// Setup materialize components. This will call the modals when the buttons are clicked
 document.addEventListener("DOMContentLoaded", function() {
   var modals = document.querySelectorAll(".modal");
   M.Modal.init(modals);
 });
 
-// Listen fro auth status changes
+// Listen for auth status changes
 auth.onAuthStateChanged(user => {
   if (user) {
     setupUI(user);
@@ -76,11 +75,11 @@ var loggedInLinks = document.querySelectorAll(".logged-in");
 
 var setupUI = user => {
   if (user) {
-    // toggle UI elements
+    // Toggle UI elements
     loggedInLinks.forEach(item => (item.style.display = "block"));
     loggedOutLinks.forEach(item => (item.style.display = "none"));
   } else {
-    // toggle UI elements
+    // Toggle UI elements
     loggedInLinks.forEach(item => (item.style.display = "none"));
     loggedOutLinks.forEach(item => (item.style.display = "block"));
   }
@@ -98,7 +97,7 @@ signupForm.addEventListener("submit", e => {
     .val()
     .trim();
 
-  // Sign Up User In firebase
+  // Sign Up user in firebase
   auth.createUserWithEmailAndPassword(email, password).then(cred => {
     var modal = document.querySelector("#modal-signup");
     M.Modal.getInstance(modal).close();
@@ -126,16 +125,16 @@ loginForm.addEventListener("submit", e => {
     .trim();
 
   auth.signInWithEmailAndPassword(email, password).then(cred => {
-    // close the login modal and reset the form
+    // Close the login modal and reset the form
     var modal = document.querySelector("#modal-login");
     M.Modal.getInstance(modal).close();
     loginForm.reset();
   });
 });
 
-//Function to search receipe API
+// Function to search receipe API
 function searchRecipes() {
-  //Clears the div
+  // Clears the div
   $(".recipes").empty();
 
   var itemSearch = $(".uk-search-input")
@@ -208,7 +207,7 @@ function searchRecipes() {
 
         var spanIngredients = $(`.span${i}`);
 
-        // added line break for each ingredient
+        // Added line break for each ingredient
         spanIngredients.append(ingredients + "<br>");
       }
     }
@@ -385,15 +384,15 @@ document.addEventListener("DOMContentLoaded", function() {
   M.Collapsible.init(elems);
 });
 
-//Click listener to search both APIs at the same time
+// Click listener to search both APIs at the same time
 $(".search-button").on("click", function(event) {
   event.preventDefault();
   searchRecipes();
-  //SetTimeout because the movie API send data back faster than the recipes
+  // SetTimeout because the movie API sends data back faster than the recipes
   setTimeout(function() {
     searchMovie();
   }, 1000);
-  //Clears the search field on enter/click
+  // Clears the search field on enter/click
   $(".uk-search-input").val("");
 });
 
@@ -401,6 +400,7 @@ function searchMovie() {
   //Clears the div
   $(".movie").empty();
 
+  // Grabs the value of the radio buttons
   if ($("input[type='radio'].with-gap").is(":checked")) {
     var genreSearch = $("input[type='radio'].with-gap:checked").val();
   }
