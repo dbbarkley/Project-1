@@ -28,6 +28,8 @@ var config = {
   messagingSenderId: "471943646046"
 };
 
+firebase.initializeApp(config);
+
 var database = firebase.firestore();
 var auth = firebase.auth();
 
@@ -37,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function() {
   M.Modal.init(modals);
 
   var elems = document.querySelectorAll('.carousel');
-  M.Carousel.init(elems, options);
+  M.Carousel.init(elems);
 });
 
 // Listen for auth status changes
@@ -123,9 +125,9 @@ function searchRecipes() {
     "https://api.edamam.com/search?q=" +
     itemSearch +
     "&app_id=" +
-    edamamKey.mausufID +
+    edamamKey.ashleyID +
     "&app_key=" +
-    edamamKey.mausufKey;
+    edamamKey.ashleyKey;
 
   $.ajax({
     url: queryURL,
@@ -332,7 +334,7 @@ function searchMovie() {
 
   var queryURL =
     "https://api.themoviedb.org/3/discover/movie?api_key=" +
-    tmdbKey.danielkey +
+    tmdbKey.ashleykey +
     "&language=en-US&with_genres=" +
     genreSearch +
     "&include_adult=false&sort_by=vote_count.desc"
