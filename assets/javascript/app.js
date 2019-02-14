@@ -45,27 +45,65 @@ document.addEventListener("DOMContentLoaded", function() {
 // Listen for auth status changes
 auth.onAuthStateChanged(user => {
   if (user) {
-    setupUI(user);
+    database.collection("recipes").onSnapshot(snapshot => {
+      setupList(snapshot.docs);
+      setupUI(user);
+      M.AutoInit();
+    }, err => {
+      console.log(err.message);
+    });
   } else {
     setupUI();
+    setupList([]);
   }
 });
 
 var loggedOutLinks = document.querySelectorAll(".logged-out");
 var loggedInLinks = document.querySelectorAll(".logged-in");
+var accountDetails = document.querySelector(".account-details");
 
 var setupUI = user => {
   if (user) {
+    // Account info
+    var html = `<div>Logged in as ${user.email}</div>`;
+    accountDetails.innerHTML = html;
     // Toggle UI elements
     loggedInLinks.forEach(item => (item.style.display = "block"));
     loggedOutLinks.forEach(item => (item.style.display = "none"));
   } else {
+    // Hide account detials
+    accountDetails.innerHTML = "";
     // Toggle UI elements
     loggedInLinks.forEach(item => (item.style.display = "none"));
     loggedOutLinks.forEach(item => (item.style.display = "block"));
   }
 };
 
+var recipeList = document.querySelector(".recipes-details");
+
+var setupList = (data) => {
+
+  if (data.length) {
+    var html = "";
+    data.forEach(doc => {
+      var recipes = doc.data();
+      var ul = `
+       <ul class='collapsible popout'> 
+       <li> 
+       <div class='collapsible-header' style='background:transparent; font-family: Rajdhani, sans-serif'>${recipes.label}</div>
+       <div class='collapsible-body test' style='font-family: Rajdhani, sans-serif;'><img src=${recipes.image}><h4 class='text'></h4><span class='span'></span>
+       <a class="waves-effect waves-light btn grey darken-2 see-recipe" href="${recipes.URL}" target="_blank">See Recipe</a>
+       </li>
+       </ul>
+      `;
+      html += ul
+      
+    });
+    recipeList.innerHTML = html;
+  } else {
+    recipeList.innerHTML = `<h6 class="no-recipes center-align">No Recipes Saved</h6>`
+  }
+}
 // Authentication Signup
 var signupForm = document.querySelector("#signup-form");
 signupForm.addEventListener("submit", e => {
@@ -82,6 +120,9 @@ signupForm.addEventListener("submit", e => {
   auth.createUserWithEmailAndPassword(email, password).then(cred => {
     var modal = document.querySelector("#modal-signup");
     M.Modal.getInstance(modal).close();
+    $(".recipes").empty();
+    $(".movie").empty();
+    $(".carousel").hide();
     signupForm.reset();
   });
 });
@@ -90,6 +131,9 @@ signupForm.addEventListener("submit", e => {
 var logout = document.querySelector("#logout");
 logout.addEventListener("click", e => {
   e.preventDefault();
+  $(".recipes").empty();
+  $(".movie").empty();
+  $(".carousel").hide();
   auth.signOut();
 });
 
@@ -97,6 +141,9 @@ logout.addEventListener("click", e => {
 var loginForm = document.querySelector("#login-form");
 loginForm.addEventListener("submit", e => {
   e.preventDefault();
+  $(".recipes").empty();
+  $(".movie").empty();
+  $(".carousel").hide();
   // Get User Info
   var email = $("#login-email")
     .val()
@@ -184,15 +231,6 @@ function searchRecipes() {
         // Click event for first recipe
         $(document.body).on("click", "#save-recipe0", (e) => {
         e.preventDefault();
-        var clickOne = 
-        "<ul class='collapsible popout'>" +
-        "<li>" +
-        "<div class='collapsible-header' style='background:transparent; font-family: Rajdhani, sans-serif'>" + label0 + "</div>" +
-        `<div class='collapsible-body test' style='font-family: Rajdhani, sans-serif;'><img src=` + image0 + `><h4 class='text'></h4><span class='span span${i}'></span>` + 
-        `<a class="waves-effect waves-light btn grey darken-2 see-recipe" href="` + URL0 + `"target="_blank">See Recipe</a>` +
-        "</li>" +
-        "</ul>"
-
         database.collection("recipes").add({
           label: label0,
           image: image0,
@@ -201,22 +239,11 @@ function searchRecipes() {
           var favReciep = document.querySelector("#modal-recipe");
           M.Modal.getInstance(favReciep).open();
         });
-  
-        $(".recipes-details").append(clickOne);
         M.AutoInit();
       });
         // Click event for second recipe
         $(document.body).on("click", "#save-recipe1", (e) => {
         e.preventDefault();
-        var clickTwo = 
-        "<ul class='collapsible popout'>" +
-        "<li>" +
-        "<div class='collapsible-header' style='background:transparent; font-family: Rajdhani, sans-serif'>" + label1 + "</div>" +
-        `<div class='collapsible-body test' style='font-family: Rajdhani, sans-serif;'><img src=` + image1 + `><h4 class='text'></h4><span class='span span${i}'></span>` + 
-        `<a class="waves-effect waves-light btn grey darken-2 see-recipe" href="` + URL1 + `"target="_blank">See Recipe</a>` +
-        "</li>" +
-        "</ul>"
-  
         database.collection("recipes").add({
           label: label1,
           image: image1,
@@ -225,22 +252,11 @@ function searchRecipes() {
           var favReciep = document.querySelector("#modal-recipe");
           M.Modal.getInstance(favReciep).open();
         });
-
-        $(".recipes-details").append(clickTwo);
         M.AutoInit(); 
       });
         // Click event for third recipe
         $(document.body).on("click", "#save-recipe2", (e) => {
         e.preventDefault();
-        var clickThree = 
-        "<ul class='collapsible popout'>" +
-        "<li>" +
-        "<div class='collapsible-header' style='background:transparent; font-family: Rajdhani, sans-serif'>" + label2 + "</div>" +
-        `<div class='collapsible-body test' style='font-family: Rajdhani, sans-serif;'><img src=` + image2 + `><h4 class='text'></h4><span class='span span${i}'></span>` + 
-        `<a class="waves-effect waves-light btn grey darken-2 see-recipe" href="` + URL2 + `"target="_blank">See Recipe</a>` +
-        "</li>" +
-        "</ul>"
-  
         database.collection("recipes").add({
           label: label2,
           image: image2,
@@ -249,22 +265,11 @@ function searchRecipes() {
           var favReciep = document.querySelector("#modal-recipe");
           M.Modal.getInstance(favReciep).open();
         });
-
-        $(".recipes-details").append(clickThree);
         M.AutoInit();
       });
         // Click event for fourth recipe
         $(document.body).on("click", "#save-recipe3", (e) => {
         e.preventDefault();
-        var clickFour = 
-        "<ul class='collapsible popout'>" +
-        "<li>" +
-        "<div class='collapsible-header' style='background:transparent; font-family: Rajdhani, sans-serif'>" + label3 + "</div>" +
-        `<div class='collapsible-body test' style='font-family: Rajdhani, sans-serif;'><img src=` + image3 + `><h4 class='text'></h4><span class='span span${i}'></span>` + 
-        `<a class="waves-effect waves-light btn grey darken-2 see-recipe" href="` + URL3 + `"target="_blank">See Recipe</a>` +
-        "</li>" +
-        "</ul>"
-
         database.collection("recipes").add({
           label: label3,
           image: image3,
@@ -273,22 +278,11 @@ function searchRecipes() {
           var favReciep = document.querySelector("#modal-recipe");
           M.Modal.getInstance(favReciep).open();
         });
-
-        $(".recipes-details").append(clickFour);
         M.AutoInit();
       });
         // Click event for fifth recipe
         $(document.body).on("click", "#save-recipe4", (e) => {
         e.preventDefault();
-        var clickFive = 
-        "<ul class='collapsible popout'>" +
-        "<li>" +
-        "<div class='collapsible-header' style='background:transparent; font-family: Rajdhani, sans-serif'>" + label4 + "</div>" +
-        `<div class='collapsible-body test' style='font-family: Rajdhani, sans-serif;'><img src=` + image4 + `><h4 class='text'></h4><span class='span span${i}'></span>` + 
-        `<a class="waves-effect waves-light btn grey darken-2 see-recipe" href="` + URL4 + `"target="_blank">See Recipe</a>` +
-        "</li>" +
-        "</ul>"
-  
         database.collection("recipes").add({
           label: label4,
           image: image4,
@@ -297,13 +291,10 @@ function searchRecipes() {
           var favReciep = document.querySelector("#modal-recipe");
           M.Modal.getInstance(favReciep).open();
         });
-
-        $(".recipes-details").append(clickFive);
         M.AutoInit();
       });
   });
 }
-
 
 document.addEventListener('DOMContentLoaded', function () {
   var elems = document.querySelectorAll('.collapsible');

@@ -17,7 +17,6 @@
 }
 .collapsible-header {
     background-color: rgb(245,245,245,0.4)!important;
-    
 }
 .see-recipe {
     margin-top: 5px!important;
@@ -26,7 +25,14 @@
     margin-top: 5px!important;
     margin-left: 10px!important;
 }
-
+.account-details {
+    color: black;
+    margin-top: -10px;
+}
+.no-recipes {
+    color: black!important;
+    margin-top: -10px!important;
+}
 .searchBarDiv, .searchBarForm{
     color:rgb(66,66,66); 
 }
