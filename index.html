@@ -105,50 +105,52 @@
         </div>
 
         <!--Search Form Div Below-->
-        <div class="uk-align-center">
-            <div class="uk-margin uk-align-center searchBarDiv">
-                <form class="uk-search uk-search-default uk-align-center uk-search-icon-flip searchBarForm" style="width:792px;">
-                      <input class="uk-search-input searchBarInput" type="search"
-                        placeholder="Step 1: Search by recipe, by ingredient or by multiple ingredients!" />
-                </form>
+        <form id="required-fields">
+            <div class="uk-align-center">
+                <div class="uk-margin uk-align-center searchBarDiv">
+                    
+                          <input class="uk-search-input searchBarInput" type="text"
+                            placeholder="Step 1: Search by recipe, by ingredient or by multiple ingredients!" required />
+                    
+                </div>
             </div>
-        </div>
-
-        <!--Radio buttons-->
-        <div>
-            <p class="uk-align-center radioButtonHeader">Step 2: Now pick a
-                movie genre!</p>
-            <form action="#" class="uk-align-center" style="margin-top: 0px; width: 792px">
-
-                <p class="genreOptions" >
-                    <label class="optionBox">
-                        <input value="28" class="with-gap" name="action" type="radio" />
-                        <span class="genreOptions">Action</span>
-                    </label>
-                    <label class="optionBox">
-                        <input value="12" class="with-gap genre" name="action" type="radio" />
-                        <span class="genreOptions">Adventure</span>
-                    </label>
-                    <label class="optionBox">
-                        <input value="35" class="with-gap" name="action" type="radio" />
-                        <span class="genreOptions">Comedy</span>
-                    </label>
-                    <label class="optionBox">
-                        <input value="27" class="with-gap" name="action" type="radio" />
-                        <span class="genreOptions">Horror</span>
-                    </label>
-                    <label class="optionBox">
-                        <input value="10749" class="with-gap" name="action" type="radio" />
-                        <span class="genreOptions">Romance</span>
-                    </label>
-                </p>
-            </form>
-        </div>
-        
-        <!--Search Button--> 
-        <div class="searchButtonDiv">
-            <button class="search-button" type="submit">Step 3: Search &#x1F50E;</button>
-        </div>
+    
+            <!--Radio buttons-->
+            <div>
+                <p class="uk-align-center radioButtonHeader">Step 2: Now pick a
+                    movie genre!</p>
+                
+    
+                    <p class="genreOptions" >
+                        <label class="optionBox">
+                            <input value="28" class="with-gap" name="action" type="radio" required />
+                            <span class="genreOptions">Action</span>
+                        </label>
+                        <label class="optionBox">
+                            <input value="12" class="with-gap genre" name="action" type="radio" required />
+                            <span class="genreOptions">Adventure</span>
+                        </label>
+                        <label class="optionBox">
+                            <input value="35" class="with-gap" name="action" type="radio" required />
+                            <span class="genreOptions">Comedy</span>
+                        </label>
+                        <label class="optionBox">
+                            <input value="27" class="with-gap" name="action" type="radio" required />
+                            <span class="genreOptions">Horror</span>
+                        </label>
+                        <label class="optionBox">
+                            <input value="10749" class="with-gap" name="action" type="radio" required />
+                            <span class="genreOptions">Romance</span>
+                        </label>
+                    </p>
+                
+            </div>
+            
+            <!--Search Button--> 
+            <div class="searchButtonDiv">
+                <button class="search-button" type="submit">Step 3: Search &#x1F50E;</button>
+            </div>
+        </form>
    
     </div>
     

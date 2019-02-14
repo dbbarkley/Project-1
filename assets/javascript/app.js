@@ -311,7 +311,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 // Click listener to search both APIs at the same time
-$(".search-button").on("click", function(event) {
+$("#required-fields").on("submit", function(event) {
   event.preventDefault();
   searchRecipes();
   // SetTimeout because the movie API sends data back faster than the recipes
@@ -334,7 +334,7 @@ function searchMovie() {
 
   var queryURL =
     "https://api.themoviedb.org/3/discover/movie?api_key=" +
-    tmdbKey.ashleykey +
+    tmdbKey.danielkey +
     "&language=en-US&with_genres=" +
     genreSearch +
     "&include_adult=false&sort_by=vote_count.desc"
