@@ -34,13 +34,18 @@
     margin-top: -10px!important;
 }
 .searchBarDiv, .searchBarForm{
-    color:rgb(66,66,66); 
+    color:rgb(66,66,66)!important; 
 }
 
 .searchBarInput {
     font-family: 'Rajdhani', sans-serif; 
     font-weight: bolder;
-    color:rgb(66,66,66);
+    color:rgb(66,66,66)!important;
+    font-size: 20px!important;
+}
+
+input::placeholder {
+    color: rgb(66,66,66,0.8)!important;
 }
 
 .carousel {
@@ -53,7 +58,7 @@
 
 
 .genreOptions {
-    font-size: 20px; 
+    font-size: 20px!important; 
     font-weight: bolder;
     color:rgb(66,66,66);
     font-family: 'Rajdhani', sans-serif;
@@ -62,12 +67,12 @@
 
 .optionBox {
     float: left;
-    padding-right: 9.7%;
+    padding-right: 7%;
     margin-left: -3px;
 }
 
 .radioButtonHeader {
-    font-size: 16px;
+    font-size: 20px!important;
     font-weight: bolder;
     color:rgb(66,66,66);
     font-family: 'Rajdhani', sans-serif;  
@@ -86,6 +91,7 @@
     box-sizing: border-box;
     font-family:'Rajdhani', sans-serif;
     font-weight: bolder;
+    font-size: 20px;
     color:rgb(66,66,66);
     text-align:center;
     transition: all 0.15s;
@@ -115,6 +121,10 @@
     font-family:'Rajdhani', sans-serif;
     font-weight: bolder;
     color: white;  
+}
+
+.modal-trigger {
+    font-size: 20px;
 }
 
 .logout-message {
