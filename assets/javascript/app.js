@@ -101,7 +101,7 @@ var setupList = (data) => {
     });
     recipeList.innerHTML = html;
   } else {
-    recipeList.innerHTML = `<h6 class="no-recipes center-align">No Recipes Saved</h6>`
+    recipeList.innerHTML = `<h6 class="no-recipes center-align">Make Sure You're Signed In To Save Recipes</h6>`
   }
 }
 // Authentication Signup
