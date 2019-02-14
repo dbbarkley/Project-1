@@ -50,17 +50,17 @@
     <!-- Sign Up Modal-->
     <div id="modal-signup" class="modal">
         <div class="modal-content">
-            <h4 class="grey-text text-darken-3">Sign Up</h4><br />
+            <h4 class="text-darken-3 modal-header">Sign Up</h4><br />
             <form id="signup-form">
                 <div class="input-field">
                     <input type="email" id="signup-email" required />
-                    <label for="signup-email">Email address</label>
+                    <label for="signup-email" class="modal-label">Email address</label>
                 </div>
                 <div class="input-field">
                     <input type="password" id="signup-password" required />
-                    <label for="signup-password">Choose password</label>
+                    <label for="signup-password" class="modal-label">Choose password</label>
                 </div>
-                <button class="btn grey darken-2" type="submit">Sign Up</button>
+                <button class="btn grey darken-2 modal-button" type="submit">Sign Up</button>
             </form>
         </div>
     </div>
@@ -68,17 +68,17 @@
     <!-- Login Modal-->
     <div id="modal-login" class="modal">
         <div class="modal-content">
-            <h4 class="grey-text text-darken-3">Login</h4><br />
+            <h4 class="text-darken-3 modal-header">Login</h4><br />
             <form id="login-form">
                 <div class="input-field">
                     <input type="email" id="login-email" required />
-                    <label for="login-email">Email address</label>
+                    <label for="login-email" class="modal-label">Email address</label>
                 </div>
                 <div class="input-field">
                     <input type="password" id="login-password" required />
-                    <label for="login-password">Your password</label>
+                    <label for="login-password" class="modal-label">Your password</label>
                 </div>
-                <button class="btn grey darken-2" type="submit">Login</button>
+                <button class="btn grey darken-2 modal-button" type="submit">Login</button>
             </form>
         </div>
     </div>
@@ -86,14 +86,14 @@
     <!-- Logout Modal-->
     <div id="modal-logout" class="modal">
         <div class="modal-content center-align">
-            <h4 class="grey-text text-darken-3">You're Logged Out</h4>
+            <h4 class="modal-header logout-message text-darken-3">You're Logged Out</h4>
         </div>
     </div>
 
     <!-- Recipe Modal-->
     <div id="modal-recipe" class="modal">
         <div class="modal-content center-align">
-            <h4 class="grey-text text-darken-3">Your Recipes</h4><br />
+            <h4 class="modal-header text-darken-3">Your Recipes</h4><br />
             <div class="recipes-details"></div>
         </div>
     </div>
@@ -101,8 +101,8 @@
     <!-- Account Modal-->
     <div id="modal-account" class="modal">
         <div class="modal-content center-align">
-            <h4 class="grey-text text-darken-3">Account details</h4><br />
-            <div class="account-details"></div>
+            <h4 class="modal-header text-darken-3">Account details</h4><br />
+            <div class="account-details modal-label"></div>
         </div>
     </div>
 

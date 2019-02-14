@@ -82,13 +82,8 @@
 /* Search Button */
 .search-button {
     display:inline-block;
-    text-transform: capitalize;
-    padding:10px, 10px, 10px, 10px;
     border: 2px solid rgb(66,66,66, 0.7);
-    margin:10px, 0, 0, 0;
     box-sizing: border-box;
-    text-decoration:none;
-    text-transform:uppercase;
     font-family:'Rajdhani', sans-serif;
     font-weight: bolder;
     color:rgb(66,66,66);
@@ -108,3 +103,20 @@
     border-color: rgba(245, 245, 245, 0.5);
     }
 /* End button */
+
+/* Modal style */
+.modal {
+    background: rgb(66,66,66, 0.9);
+    width: 500px;
+}
+
+.modal-trigger, .modal-header, .modal-label, .modal-button{
+    opacity: 0.8;
+    font-family:'Rajdhani', sans-serif;
+    font-weight: bolder;
+    color: white;  
+}
+
+.logout-message {
+    padding-top: 10px;
+}
