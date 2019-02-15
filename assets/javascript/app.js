@@ -20,7 +20,7 @@ function random_bg_color() {
 
 // Initialize Firebase
 var config = {
-  apiKey: firebaseKey,
+  apiKey: "AIzaSyCvgmtREtDbLoWfqqa6-v5VrykBXjzy9FI",
   authDomain: "foodflix-9170b.firebaseapp.com",
   databaseURL: "https://foodflix-9170b.firebaseio.com",
   projectId: "foodflix-9170b",
@@ -172,9 +172,9 @@ function searchRecipes() {
     "https://api.edamam.com/search?q=" +
     itemSearch +
     "&app_id=" +
-    edamamKey.ashleyID +
+    "907fcd7c" +
     "&app_key=" +
-    edamamKey.ashleyKey;
+    "c5117c4a65bdb06f4ea9592650475c7a";
 
   $.ajax({
     url: queryURL,
@@ -325,7 +325,7 @@ function searchMovie() {
 
   var queryURL =
     "https://api.themoviedb.org/3/discover/movie?api_key=" +
-    tmdbKey.danielkey +
+    "6bf1eb4a9936bec18bab9ad37b9bf3d5" +
     "&language=en-US&with_genres=" +
     genreSearch +
     "&include_adult=false&sort_by=vote_count.desc"
