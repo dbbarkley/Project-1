@@ -169,7 +169,7 @@ input::placeholder {
         padding-right: 10px;
     }
 
-    .body, .search-button, .searchFormDiv, .searchBarInput, .searchButtonDiv, .html, .container, radioButtonHeader, .genreOptions {
+    .body, .search-button, .searchFormDiv, .searchBarInput, .searchButtonDiv, .html, .container, .radioButtonHeader, .genreOptions {
     width: 100%;
     }
 
@@ -184,9 +184,10 @@ input::placeholder {
         margin-left: 0%;
         margin-top: -30px;
         position: fixed;
+        z-index: 1;
     }
     .navBarDiv, .nav-wrapper {
-        width: 100%
+        width: 100%;
     }
     .logged-in, .logged-out, .navBarDiv, .modal-trigger{
         float: right;
@@ -208,5 +209,6 @@ input::placeholder {
     /*Login/SignUp/Logout/Account Modal Media QQs*/
     .modal{
         width:80%;
+        background: rgb(66,66,66,0.9)!important;
     }
 }
