@@ -23,10 +23,11 @@
 <body>
 
     <!--Navbar-->
-    <nav class="z-depth-2 grey darken-3">
-        <div class="nav-wrapper container" style="width:792px">
+    <div id="navBarHeader">
+    <nav class="z-depth-2 grey darken-3 navBarDiv">
+        <div class="nav-wrapper container">
             <a href="#" class="brand-logo"></a>
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <ul id="nav-mobile" class="right">
                 <li class="logged-in" style="display: none;">
                     <a href="#" class="modal-trigger" data-target="modal-account">Account</a>
                 </li>
@@ -45,6 +46,7 @@
             </ul>
         </div>
     </nav>
+    </div>
 
 
     <!-- Sign Up Modal-->
@@ -53,11 +55,11 @@
             <h4 class="text-darken-3 modal-header">Sign Up</h4><br />
             <form id="signup-form">
                 <div class="input-field">
-                    <input type="email" id="signup-email" required />
+                    <input type="email" class="modalInput" id="signup-email" required />
                     <label for="signup-email" class="modal-label">Email address</label>
                 </div>
                 <div class="input-field">
-                    <input type="password" id="signup-password" required />
+                    <input type="password" class="modalInput" id="signup-password" required />
                     <label for="signup-password" class="modal-label">Choose password</label>
                 </div>
                 <button class="btn grey darken-2 modal-button" type="submit">Sign Up</button>
@@ -71,11 +73,11 @@
             <h4 class="text-darken-3 modal-header">Login</h4><br />
             <form id="login-form">
                 <div class="input-field">
-                    <input type="email" id="login-email" required />
+                    <input type="email" class="modalInput" id="login-email" required />
                     <label for="login-email" class="modal-label">Email address</label>
                 </div>
                 <div class="input-field">
-                    <input type="password" id="login-password" required />
+                    <input type="password" class="modalInput" id="login-password" required />
                     <label for="login-password" class="modal-label">Your password</label>
                 </div>
                 <button class="btn grey darken-2 modal-button" type="submit">Login</button>
@@ -107,16 +109,15 @@
     </div>
 
     <!--Container-->
-    <div class="uk-container uk-align-center" style="width:792px">
+    <div class="uk-align-center mainContainer">
 
         <!--foodFlix Logo Div Below-->
-        <div class="uk-align-center">
-            <img class="uk-align-center" src="assets/images/foodFlixLogo.png" alt="foodFlix"
-                style="height:258px; width:792px" />
+        <div class="logo">
+            <img class="logo" src="assets/images/foodFlixLogo.png" alt="foodFlix"/>
         </div>
 
         <!--Search Form Div Below-->
-        <form id="required-fields">
+        <form id="required-fields" class="searchFormDiv">
             <div class="uk-align-center">
                 <div class="uk-margin uk-align-center searchBarDiv">
                    
@@ -165,10 +166,11 @@
    
     </div>
     
-    <div class="uk-container uk-align-center" style="width:792px">
-        <div class="recipes uk-align-center uk-float-left" style="width:396px;" ></div>
-
-        <div class="carousel uk-align-center uk-float-left uk-padding-remove" style="width:396px; display:none;">
+    <!--recipes-->
+    <div class="uk-container uk-align-center resultsContainer">
+        <div class="recipes uk-align-center uk-float-left" ></div>
+        <!-- movies -->
+        <div class="carousel uk-align-center uk-float-left uk-padding-remove">
             <a class="carousel-item" href="#one!"><img id="movie_1" src="https://lorempixel.com/250/250/nature/1"></a>
             <a class="carousel-item" href="#two!"><img id="movie_2" src="https://lorempixel.com/250/250/nature/2"></a>
             <a class="carousel-item" href="#three!"><img id="movie_3" src="https://lorempixel.com/250/250/nature/3"></a>

@@ -95,7 +95,7 @@ input::placeholder {
     color:rgb(66,66,66);
     text-align:center;
     transition: all 0.15s;
-    background-color:rgb(66,66,66, 0.2)!important;
+    background-color:rgb(66,66,66,0.2)!important;
     text-transform: capitalize!important;
     width: 792px;
     height: 35px;
@@ -110,23 +110,103 @@ input::placeholder {
     }
 /* End button */
 
-/* Modal style */
+/* Modal Style */
 .modal {
-    background: rgb(66,66,66, 0.9);
+    background: rgb(66,66,66,0.9);
     width: 500px;
 }
-
-.modal-trigger, .modal-header, .modal-label, .modal-button{
+.modal-trigger, .modal-header, .modal-label, .modal-button, .modalInput{
     opacity: 0.8;
     font-family:'Rajdhani', sans-serif;
     font-weight: bolder;
     color: white;  
 }
-
 .modal-trigger {
     font-size: 20px;
 }
+/*End Modal Style*/
+
 
 .logout-message {
     padding-top: 10px;
+}
+
+.logo {
+    height: auto;
+    width: 100%;
+}
+
+.mainContainer {
+    width:792px;
+}
+
+.nav-wrapper {
+    width: 792px;
+}
+
+/*Results Movies&Recipes Container*/
+.resultsContainer {
+    width: 792px;
+}
+.carousel {
+    width:396px;
+    display: none;
+}
+.recipes {
+    width:396px;
+}
+/*End Container*/
+
+
+/*----------------------------------------------*/
+/* ------------------Media QQs----------------- */
+/*----------------------------------------------*/
+@media screen and (max-width: 850px) {
+    .mainContainer{
+        width: 100%;
+        padding-top: 30px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .body, .search-button, .searchFormDiv, .searchBarInput, .searchButtonDiv, .html, .container, radioButtonHeader, .genreOptions {
+    width: 100%;
+    }
+
+    .logo {
+        max-width: 100%;
+        height: auto;
+    }
+
+    /*Navbar Media QQs*/
+    #navBarHeader{
+        width: 100%;
+        margin-left: 0%;
+        margin-top: -30px;
+        position: fixed;
+    }
+    .navBarDiv, .nav-wrapper {
+        width: 100%
+    }
+    .logged-in, .logged-out, .navBarDiv, .modal-trigger{
+        float: right;
+    }
+
+    /*Results Media QQs*/
+    .resultsContainer {
+        width: 100%;
+        padding-left: 0px;
+    }
+    .carousel {
+        width:100%;
+        display: none;
+    }
+    .recipes {
+        width:100%;
+    }
+
+    /*Login/SignUp/Logout/Account Modal Media QQs*/
+    .modal{
+        width:80%;
+    }
 }
