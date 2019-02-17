@@ -179,7 +179,7 @@ input::placeholder {
     }
 
     /*Navbar Media QQs*/
-    #navBarHeader{
+    #navBarHeader {
         width: 100%;
         margin-left: 0%;
         margin-top: -30px;
@@ -189,9 +189,9 @@ input::placeholder {
     .navBarDiv, .nav-wrapper {
         width: 100%;
     }
-    .logged-in, .logged-out, .navBarDiv, .modal-trigger{
+    /* .logged-in, .logged-out, .navBarDiv, .modal-trigger{
         float: right;
-    }
+    } */
 
     /*Results Media QQs*/
     .resultsContainer {
