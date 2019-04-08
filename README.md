@@ -1,5 +1,3 @@
-# Project-1
-
 # FoodFlix
 FoodFlix is an app that is able to search recipes and movies via genre selection in 3 easy steps.
 
